@@ -1,10 +1,13 @@
 class NamesController < ApplicationController
+  def show
+    @name = Name.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    head :not_found
+  end
+
   def create
-    person = Name.new(
-      first_name: name_params[:first_name]
-    )
-    person.save
-    redirect_to root_path(params: {name_id: person.id})
+    person = Name.create(name_params)
+    redirect_to person
   end
 
   private

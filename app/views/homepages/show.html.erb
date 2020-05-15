@@ -1,11 +1,7 @@
 <h1>Welcome</h1>
 
-<% if @name %>
-  <p> Welcome, <%= @name.first_name %>! </p>
-<% else %>
-  <%= form_for Name.new do |f| %>
-    <%= f.label "What is your name?" %>
-    <%= f.text_field :first_name %>
-    <%= f.submit "Here you go!" %>
-  <% end %>
+<%= form_for Name.new do |f| %>
+  <%= f.label "What is your name?" %>
+  <%= f.text_field :first_name %>
+  <%= f.submit "Here you go!" %>
 <% end %>
